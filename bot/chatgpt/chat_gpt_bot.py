@@ -128,7 +128,7 @@ class ChatGPTBot(Bot, OpenAIImage):
             # if api_key == None, the default openai.api_key will be used
             if args is None:
                 args = self.args
-            response = openai.ChatCompletion.create(api_key=api_key, messages=session.messages, **args)
+            response = openai.ChatCompletion.create(api_key=api_key, messages=session.messages, chatId=session.session_id, **args)
             # logger.debug("[CHATGPT] response={}".format(response))
             # logger.info("[ChatGPT] reply={}, total_tokens={}".format(response.choices[0]['message']['content'], response["usage"]["total_tokens"]))
             return {
